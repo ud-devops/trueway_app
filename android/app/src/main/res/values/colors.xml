@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The launcher icon's ground, and the launch window's. White on purpose:
+         the brand mark is a dark wordmark, and the app opens onto white. -->
+    <color name="ic_launcher_background">#FFFFFFFF</color>
+    <color name="launch_background">#FFFFFFFF</color>
+</resources>

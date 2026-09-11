@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Tells the Android resource shrinker to keep every resource this app ships.
+
+  `isShrinkResources = true` in build.gradle.kts deletes any entry under res/
+  that it cannot see referenced from code or from another resource. Its
+  reference scan is static, so anything looked up by name at runtime (a
+  drawable a plugin resolves from a string, a launcher mipmap referenced only
+  by the manifest, a theme a plugin's Activity inflates) reads as unused and is
+  removed. That failure appears only in a release build.
+
+  `@*/*` means "every type, every name". Resource shrinking still runs, so
+  unused resources from third party AARs are still analysed, but nothing this
+  module owns is deleted.
+
+  This does NOT affect Flutter assets (assets/images/, icon fonts). Those live
+  in flutter_assets/, which the resource shrinker never touches. Missing
+  Material Symbols glyphs are removed by Flutter's own icon tree shaker, and
+  the fix for those is the "no tree shake icons" flutter build flag recorded in
+  build.gradle.kts.
+
+  Careful when editing: XML forbids a doubled hyphen inside a comment, so write
+  CLI flags here in prose rather than pasting them with their leading dashes.
+  A doubled hyphen in this file fails the build inside the R8 task with a
+  confusing "ParseError ... not permitted within comments".
+-->
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@*/*"
+    tools:shrinkMode="safe" />

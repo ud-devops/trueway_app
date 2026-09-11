@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The window the OS paints before Flutter's first frame.
+
+     White in both variants, deliberately. The v21 copy used to be
+     `?android:colorBackground`, which follows the system theme and painted this
+     dark for anyone on dark mode; the app itself opens onto white, so that read
+     as a black flash rather than as a launch screen. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/launch_background" />
+</layer-list>
